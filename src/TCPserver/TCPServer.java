@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package server;
+package TCPserver;
 
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -13,14 +13,14 @@ import java.io.IOException;
  *
  * @author Ricardo
  */
-public class Server implements Runnable{
+public class TCPServer implements Runnable{
 
     protected int serverPort = 9102;
     protected ServerSocket serverSocket = null;
     protected boolean isStopped=false;
     protected Thread runningThread=null;
     
-    public Server(int port){
+    public TCPServer(int port){
         this.serverPort = port;
     }
     

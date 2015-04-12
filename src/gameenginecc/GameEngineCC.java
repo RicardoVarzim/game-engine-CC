@@ -5,7 +5,7 @@
  */
 package gameenginecc;
 
-import server.Server;
+import TCPserver.TCPServer;
 
 
 /**
@@ -18,7 +18,10 @@ public class GameEngineCC {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Server server = new Server(9000);
+        
+        //TODO: MUDAR PARA UDPServer
+        
+        TCPServer server = new TCPServer(9000);
         new Thread(server).start();
 
         try {

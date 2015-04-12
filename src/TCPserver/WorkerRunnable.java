@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package server;
+package TCPserver;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,6 +15,7 @@ import java.net.Socket;
  * @author Ricardo
  */
 public class WorkerRunnable implements Runnable {
+    
     protected Socket clientSocket = null;
     protected String serverText   = null;
 
@@ -23,6 +24,7 @@ public class WorkerRunnable implements Runnable {
         this.serverText   = serverText;
     }
 
+    @Override
     public void run() {
         try {
             InputStream input  = clientSocket.getInputStream();
