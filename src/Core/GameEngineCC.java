@@ -1,4 +1,4 @@
-package gameenginecc;
+package Core;
 
 import UDPServer.*;
 
