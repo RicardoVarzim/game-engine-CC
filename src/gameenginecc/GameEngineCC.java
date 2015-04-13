@@ -5,7 +5,7 @@
  */
 package gameenginecc;
 
-import TCPserver.TCPServer;
+import UDPServer.*;
 
 
 /**
@@ -21,16 +21,11 @@ public class GameEngineCC {
         
         //TODO: MUDAR PARA UDPServer
         
-        TCPServer server = new TCPServer(9000);
+        UDPServer server = new UDPServer(9000);
         new Thread(server).start();
 
-        try {
-            Thread.sleep(20 * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Stopping Server");
-        server.stop();
+        //System.out.println("Stopping Server");
+        //server.stop();
     }
     
 }
