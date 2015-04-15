@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package BusinessObjects;
 
 import BusinessEntities.UserBE;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Ricardo
- */
 public class UserBO {
     List<UserBE> users;
 
@@ -25,7 +16,7 @@ public class UserBO {
       users.add(user1);
       users.add(user2);		
    }
-   public void deleteStudent(UserBE user) {
+   public void deleteUser(UserBE user) {
       users.remove(user.getId());
       System.out.println("User: Roll No " + user.getId()+ ", deleted from database");
    }

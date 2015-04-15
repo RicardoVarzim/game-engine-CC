@@ -9,9 +9,22 @@ import BusinessObjects.*;
 
 public class BusinessLayer {
     
+    //create an object of SingleObject
+    private static BusinessLayer instance = new BusinessLayer();
     //GlobalVars
     private GameBO _gameBO;
     private UserBO _userBO;
+    
+    //make the constructor private so that this class cannot be instantiated
+    private BusinessLayer(){
+        this._gameBO = new GameBO();
+        this._userBO = new UserBO();
+    }
+
+    //Get the only object available
+    public static BusinessLayer getInstance(){
+        return instance;
+    }
     
     //Commands
     public void hello(){

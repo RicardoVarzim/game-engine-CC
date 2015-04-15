@@ -15,7 +15,7 @@ public class GameEngineCC {
         UDPServer server = new UDPServer(9000);
         new Thread(server).start();
 
-        BusinessLayer business = new BusinessLayer();
+        BusinessLayer business = BusinessLayer.getInstance();
 
         
         
