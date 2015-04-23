@@ -1,6 +1,6 @@
 package Commands;
 
-import Commands.Orders.Hello;
+import Commands.Orders.*;
 import Core.BusinessLayer;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +26,14 @@ public class CommandBroker {
         orderList.clear();
     } 
     
-    public Order PDUConverter(PDU p, BusinessLayer business){
+    public Order PDUConverter(PDU message){
         Order result = null;
                 
-        if(p.type == (byte)0){
-            result = new Hello(business);
+        if(message.type == (byte)1){
+            result = new Hello(message);
+        }
+        if(message.type == (byte)2){
+            result = new Register(message);
         }
              
         return result;

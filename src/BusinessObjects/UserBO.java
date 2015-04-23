@@ -4,7 +4,7 @@ import BusinessEntities.UserBE;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserBO {
+public class UserBO  {
     List<UserBE> users;
 
    public UserBO(){
@@ -16,41 +16,41 @@ public class UserBO {
       users.add(user1);
       users.add(user2);		
    }
-   public void deleteUser(UserBE user) {
+   public synchronized void deleteUser(UserBE user) {
       users.remove(user.getId());
       System.out.println("User: Roll No " + user.getId()+ ", deleted from database");
    }
 
    //retrive list of students from the database
-   public List<UserBE> getAllUsers() {
+   public synchronized List<UserBE> getAllUsers() {
       return users;
    }
 
-   public UserBE getUser(int id) {
+   public synchronized UserBE getUser(int id) {
       return users.get(id);
    }
 
-   public void updateName(UserBE user) {
+   public synchronized void updateName(UserBE user) {
       users.get(user.getId()).setName(user.getName());
       System.out.println("User: Roll No " + user.getId() +", updated in the database");
    }
    
-   public void updateTotalScore(UserBE user) {
+   public synchronized void updateTotalScore(UserBE user) {
       users.get(user.getId()).setTotalScore(user.getTotalScore());
       System.out.println("User: Roll No " + user.getId() +", updated in the database");
    }
    
-   public void updateInGame(UserBE user) {
+   public synchronized void updateInGame(UserBE user) {
       users.get(user.getId()).setInGame(user.getInGame());
       System.out.println("User: Roll No " + user.getId() +", updated in the database");
    }
    
-   public void updateHasGame(UserBE user) {
+   public synchronized void updateHasGame(UserBE user) {
       users.get(user.getId()).setHasGame(user.getHasGame());
       System.out.println("User: Roll No " + user.getId() +", updated in the database");
    }
    
-   public void updateLoggedIn(UserBE user) {
+   public synchronized void updateLoggedIn(UserBE user) {
       users.get(user.getId()).setLoggedIn(user.getLoggedIn());
       System.out.println("User: Roll No " + user.getId() +", updated in the database");
    }

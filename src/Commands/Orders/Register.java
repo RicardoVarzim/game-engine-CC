@@ -15,9 +15,11 @@ import Core.*;
 public class Register implements Order {
 
     private BusinessLayer business;
+    private PDU message;
     
-    public Register(BusinessLayer b){
-        this.business = b;
+    public Register(PDU message){
+        this.business = BusinessLayer.getInstance();
+        this.message = message;
     }
     
     @Override

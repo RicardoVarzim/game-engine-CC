@@ -26,7 +26,6 @@ public class BusinessLayer {
         return instance;
     }
     
-    //Commands
     public void hello(){
         System.out.println("Hello");
     }

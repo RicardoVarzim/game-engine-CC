@@ -15,9 +15,11 @@ import Core.*;
 public class Hello implements Order {
 
     private BusinessLayer business;
+    private PDU message;
     
-    public Hello(BusinessLayer b){
-        this.business = b;
+    public Hello(PDU message){
+        this.business = BusinessLayer.getInstance();
+        this.message = message;
     }
     
     @Override

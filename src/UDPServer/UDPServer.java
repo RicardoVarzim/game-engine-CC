@@ -7,7 +7,7 @@ import java.util.logging.Logger;
   
 public class UDPServer implements Runnable { 
   
-    protected int port = 9100;
+    protected int port;
     
     public UDPServer(int port){
         this.port = port;

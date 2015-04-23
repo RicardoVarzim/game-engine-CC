@@ -1,21 +1,33 @@
 package Core;
 
 import Commands.CommandBroker;
+import Commands.CommandFactory;
 import Commands.Orders.*;
+import UDPClient.UDPClient;
 import UDPServer.*;
 
 public class GameEngineCC {
 
-    /**
-     * @param args the command line arguments
-     */
+    static UDPClient udpClient;
+    static UDPServer udpServer;
+    static BusinessLayer business;
+    static CommandFactory pduFactory ;
+    //static Util util;
+    
     public static void main(String[] args) {
         
+        pduFactory = new CommandFactory();
+                
+        business = BusinessLayer.getInstance();
         //Initialize Server
-        UDPServer server = new UDPServer(9000);
-        new Thread(server).start();
+        udpServer = new UDPServer(9875);
+        new Thread(udpServer).start();
 
-        BusinessLayer business = BusinessLayer.getInstance();
+        //Initialize Client
+        udpClient = new UDPClient(pduFactory.Hello());
+        new Thread(udpClient).start();
+        
+        
 
         
         
