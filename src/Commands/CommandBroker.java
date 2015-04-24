@@ -1,29 +1,42 @@
 package Commands;
 
+import BusinessObjects.GameBO;
+import BusinessObjects.UserBO;
 import Commands.Orders.*;
 import Core.BusinessLayer;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CommandBroker {
+    //create an object of SingleObject
+    private static CommandBroker instance = new CommandBroker();
     
-    private List<Order> orderList = new ArrayList<Order>(); 
+    private List<Order> _orderList ; 
 
-    public void takeOrder(Order order){
-        orderList.add(order);		
+    private CommandBroker(){
+        this._orderList = new ArrayList<Order>();
+    }
+
+    //Get the only object available
+    public static CommandBroker getInstance(){
+        return instance;
+    }
+    
+    public synchronized void takeOrder(Order order){
+        _orderList.add(order);		
     }
 
     //PDU to Order
-    public void takeOrder(PDU p){
-        
+    public synchronized void takeOrder(PDU p){
+        _orderList.add(PDUConverter(p));
     }
     
-    public void placeOrders(){
+    public synchronized void placeOrders(){
    
-        for (Order order : orderList) {
+        for (Order order : _orderList) {
             order.execute();
         }
-        orderList.clear();
+        _orderList.clear();
     } 
     
     public Order PDUConverter(PDU message){

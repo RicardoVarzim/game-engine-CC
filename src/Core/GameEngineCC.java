@@ -25,9 +25,15 @@ public class GameEngineCC {
         udpServer = new UDPServer(9875);
         new Thread(udpServer).start();
         
-        //Initialize Client
-        udpClient = new UDPClient(pduFactory.Hello());
-        new Thread(udpClient).start();
+        //TODO INICIALIZAR GUI{
+        
+            //Initialize Client
+            udpClient = new UDPClient(pduFactory.Hello());
+            new Thread(udpClient).start();
+            
+        //}
+        
+        
         
         
 

@@ -17,10 +17,11 @@ import java.util.logging.Logger;
 
 public class UDPClientWorker implements Runnable {
     
+    static CommandBroker broker ;
     private DatagramPacket receivePacket;
     private DatagramSocket serverSocket;
     private BusinessLayer business;
-
+    
     
     UDPClientWorker(DatagramSocket serverSocket,DatagramPacket message){
         this.serverSocket = serverSocket;
@@ -49,7 +50,7 @@ public class UDPClientWorker implements Runnable {
                 PDU message = (PDU) is.readObject();
                 System.out.println("PDU object received = "+message);
                 //PDU TO BROKER
-                CommandBroker broker = new CommandBroker();
+                broker = CommandBroker.getInstance();
                 broker.takeOrder(broker.PDUConverter(message));
                 //RUN BROKER
                 broker.placeOrders();

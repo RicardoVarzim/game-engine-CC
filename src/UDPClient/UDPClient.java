@@ -1,5 +1,7 @@
 package UDPClient;
 
+import Commands.CommandBroker;
+import Commands.CommandFactory;
 import Commands.PDU;
 import java.io.*; 
 import java.net.*; 
@@ -7,7 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
   
 public class UDPClient implements Runnable {
-
+    
+    static CommandBroker broker ;
     protected String host;
     private PDU message;
     protected int port;
@@ -56,6 +59,9 @@ public class UDPClient implements Runnable {
             try {
                 
                 PDU message = (PDU) is.readObject();
+                broker = CommandBroker.getInstance();
+        
+                broker.takeOrder(message);
                 System.out.println("PDU object received = "+message);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(UDPClient.class.getName()).log(Level.SEVERE, null, ex);
