@@ -3,7 +3,7 @@ package Commands;
 import BusinessObjects.GameBO;
 import BusinessObjects.UserBO;
 import Commands.Orders.*;
-import Core.BusinessLayer;
+import Core.ServerBusinessLayer;
 import java.util.ArrayList;
 import java.util.List;
 

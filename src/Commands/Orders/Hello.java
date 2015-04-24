@@ -14,11 +14,11 @@ import Core.*;
  */
 public class Hello implements Order {
 
-    private BusinessLayer business;
+    private ServerBusinessLayer business;
     private PDU message;
     
     public Hello(PDU message){
-        this.business = BusinessLayer.getInstance();
+        this.business = ServerBusinessLayer.getInstance();
         this.message = message;
     }
     

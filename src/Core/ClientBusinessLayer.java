@@ -7,22 +7,22 @@ package Core;
 
 import BusinessObjects.*;
 
-public class BusinessLayer {
+public class ClientBusinessLayer {
     
     //create an object of SingleObject
-    private static BusinessLayer instance = new BusinessLayer();
+    private static ClientBusinessLayer instance = new ClientBusinessLayer();
     //GlobalVars
     private GameBO _gameBO;
     private UserBO _userBO;
     
     //make the constructor private so that this class cannot be instantiated
-    private BusinessLayer(){
+    private ClientBusinessLayer(){
         this._gameBO = new GameBO();
         this._userBO = new UserBO();
     }
 
     //Get the only object available
-    public static BusinessLayer getInstance(){
+    public static ClientBusinessLayer getInstance(){
         return instance;
     }
     

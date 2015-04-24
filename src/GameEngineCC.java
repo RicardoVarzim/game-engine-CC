@@ -1,9 +1,8 @@
-package Core;
 
-import Commands.CommandBroker;
-import Commands.CommandFactory;
-import Commands.Orders.*;
-import Commands.PDU;
+
+
+import Commands.*;
+import Core.*;
 import UDPClient.*;
 import UDPServer.*;
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ public class GameEngineCC {
 
     static UDPClient udpClient;
     static UDPServer udpServer;
-    static BusinessLayer business;
+    static ServerBusinessLayer business;
     static CommandFactory pduFactory ;
     //static Util util;
     
@@ -20,7 +19,7 @@ public class GameEngineCC {
         
         pduFactory = new CommandFactory();
                 
-        business = BusinessLayer.getInstance();
+        business = ServerBusinessLayer.getInstance();
         //Initialize Server
         udpServer = new UDPServer(9875);
         new Thread(udpServer).start();

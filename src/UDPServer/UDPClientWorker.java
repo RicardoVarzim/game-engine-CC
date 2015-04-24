@@ -2,7 +2,7 @@ package UDPServer;
 
 import Commands.CommandBroker;
 import Commands.PDU;
-import Core.BusinessLayer;
+import Core.ServerBusinessLayer;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class UDPClientWorker implements Runnable {
     static CommandBroker broker ;
     private DatagramPacket receivePacket;
     private DatagramSocket serverSocket;
-    private BusinessLayer business;
+    private ServerBusinessLayer business;
     
     
     UDPClientWorker(DatagramSocket serverSocket,DatagramPacket message){

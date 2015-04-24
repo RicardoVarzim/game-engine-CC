@@ -14,11 +14,11 @@ import Core.*;
  */
 public class Register implements Order {
 
-    private BusinessLayer business;
+    private ServerBusinessLayer business;
     private PDU message;
     
     public Register(PDU message){
-        this.business = BusinessLayer.getInstance();
+        this.business = ServerBusinessLayer.getInstance();
         this.message = message;
     }
     
