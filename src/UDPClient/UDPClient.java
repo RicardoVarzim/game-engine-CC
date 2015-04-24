@@ -14,10 +14,10 @@ public class UDPClient implements Runnable {
     protected int serverPort;
     
     public UDPClient(PDU message){
-        host = "127.0.0.1";
-        port = 9874;
-        serverPort = 9875;
-        message = message;
+        this.host = "127.0.0.1";
+        this.port = 9874;
+        this.serverPort = 9875;
+        this.message = message;
     }
     
     public UDPClient(String host, int port, PDU message){
