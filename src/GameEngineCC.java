@@ -5,29 +5,37 @@ import Commands.*;
 import Core.*;
 import UDPClient.*;
 import UDPServer.*;
-import java.util.ArrayList;
+import static java.lang.Thread.sleep;
 
 public class GameEngineCC {
 
     static UDPClient udpClient;
     static UDPServer udpServer;
-    static ServerBusinessLayer business;
-    static CommandFactory pduFactory ;
     //static Util util;
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         
-        pduFactory = new CommandFactory();
-                
-        business = ServerBusinessLayer.getInstance();
+        
         //Initialize Server
         udpServer = new UDPServer(9875);
         new Thread(udpServer).start();
         
         //TODO INICIALIZAR GUI{
         
+            ClientCommandFactory clientFactory = new ClientCommandFactory();        
+        
             //Initialize Client
-            udpClient = new UDPClient(pduFactory.Hello());
+            udpClient = new UDPClient(clientFactory.Hello());
+            new Thread(udpClient).start();
+            
+            sleep(10000);
+            //Initialize Client
+            udpClient = new UDPClient(clientFactory.Register());
+            new Thread(udpClient).start();
+            
+            sleep(10000);
+            //Initialize Client
+            udpClient = new UDPClient(clientFactory.Register());
             new Thread(udpClient).start();
             
         //}

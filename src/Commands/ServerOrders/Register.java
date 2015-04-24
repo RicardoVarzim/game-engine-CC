@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Commands.Orders;
+package Commands.ServerOrders;
 
 import Commands.*;
 import Core.*;
@@ -12,19 +12,19 @@ import Core.*;
  *
  * @author Ricardo
  */
-public class Hello implements Order {
+public class Register implements ServerOrder {
 
     private ServerBusinessLayer business;
     private PDU message;
     
-    public Hello(PDU message){
+    public Register(PDU message){
         this.business = ServerBusinessLayer.getInstance();
         this.message = message;
     }
     
     @Override
-    public void execute() {
-        business.hello();
+    public PDU execute() {
+        return business.register();
     }
     
 }

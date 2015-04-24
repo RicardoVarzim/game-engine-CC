@@ -12,9 +12,9 @@ import java.util.List;
  *
  * @author Ricardo
  */
-public class CommandFactory {
+public class ServerCommandFactory {
     
-    public CommandFactory(){
+    public ServerCommandFactory(){
         
     }
     

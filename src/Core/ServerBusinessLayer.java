@@ -6,11 +6,15 @@
 package Core;
 
 import BusinessObjects.*;
+import Commands.PDU;
+import Commands.ServerCommandFactory;
 
 public class ServerBusinessLayer {
     
     //create an object of SingleObject
     private static ServerBusinessLayer instance = new ServerBusinessLayer();
+    //Factory
+    private static ServerCommandFactory factory ;
     //GlobalVars
     private GameBO _gameBO;
     private UserBO _userBO;
@@ -19,6 +23,7 @@ public class ServerBusinessLayer {
     private ServerBusinessLayer(){
         this._gameBO = new GameBO();
         this._userBO = new UserBO();
+        this.factory = new ServerCommandFactory();
     }
 
     //Get the only object available
@@ -26,11 +31,11 @@ public class ServerBusinessLayer {
         return instance;
     }
     
-    public void hello(){
-        System.out.println("Hello");
+    public PDU hello(){
+        return factory.Hello();
     }
     
-    public void register(){
-        System.out.println("register");
+    public PDU register(){
+        return factory.Register();
     }
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Commands.Orders;
+package Commands.ClientOrders;
 
 import Commands.*;
 import Core.*;
@@ -12,7 +12,7 @@ import Core.*;
  *
  * @author Ricardo
  */
-public class Register implements Order {
+public class Register implements ClientOrder {
 
     private ServerBusinessLayer business;
     private PDU message;

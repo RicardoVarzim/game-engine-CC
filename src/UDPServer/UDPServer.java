@@ -38,8 +38,7 @@ public class UDPServer implements Runnable {
             } 
         }
         catch (SocketException ex) {
-            System.out.println("UDP Port "+port+" is occupied.");
-            System.exit(1);
+            System.out.println("UDP Port "+port+" is occupied. A server is already running.");
         } catch (IOException ex) {
             Logger.getLogger(UDPServer.class.getName()).log(Level.SEVERE, null, ex);
         }

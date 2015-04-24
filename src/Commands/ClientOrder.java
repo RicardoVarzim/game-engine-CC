@@ -1,5 +1,5 @@
 package Commands;
 
-public interface Order {   
+public interface ClientOrder {   
     void execute();
 }

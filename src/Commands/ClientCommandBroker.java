@@ -1,28 +1,29 @@
 package Commands;
 
+import Commands.ClientOrders.Register;
+import Commands.ClientOrders.Hello;
 import BusinessObjects.GameBO;
 import BusinessObjects.UserBO;
-import Commands.Orders.*;
-import Core.ServerBusinessLayer;
+import Core.ClientBusinessLayer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommandBroker {
+public class ClientCommandBroker {
     //create an object of SingleObject
-    private static CommandBroker instance = new CommandBroker();
+    private static ClientCommandBroker instance = new ClientCommandBroker();
     
-    private List<Order> _orderList ; 
+    private List<ClientOrder> _orderList ; 
 
-    private CommandBroker(){
-        this._orderList = new ArrayList<Order>();
+    private ClientCommandBroker(){
+        this._orderList = new ArrayList<ClientOrder>();
     }
 
     //Get the only object available
-    public static CommandBroker getInstance(){
+    public static ClientCommandBroker getInstance(){
         return instance;
     }
     
-    public synchronized void takeOrder(Order order){
+    public synchronized void takeOrder(ClientOrder order){
         _orderList.add(order);		
     }
 
@@ -33,14 +34,14 @@ public class CommandBroker {
     
     public synchronized void placeOrders(){
    
-        for (Order order : _orderList) {
+        for (ClientOrder order : _orderList) {
             order.execute();
         }
         _orderList.clear();
     } 
     
-    public Order PDUConverter(PDU message){
-        Order result = null;
+    public ClientOrder PDUConverter(PDU message){
+        ClientOrder result = null;
                 
         if(message.type == (byte)1){
             result = new Hello(message);

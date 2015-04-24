@@ -1,6 +1,6 @@
 package UDPServer;
 
-import Commands.CommandBroker;
+import Commands.ServerCommandBroker;
 import Commands.PDU;
 import Core.ServerBusinessLayer;
 import java.io.ByteArrayInputStream;
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 public class UDPClientWorker implements Runnable {
     
-    static CommandBroker broker ;
+    static ServerCommandBroker broker ;
     private DatagramPacket receivePacket;
     private DatagramSocket serverSocket;
     private ServerBusinessLayer business;
@@ -50,16 +50,18 @@ public class UDPClientWorker implements Runnable {
                 PDU message = (PDU) is.readObject();
                 System.out.println("PDU object received = "+message);
                 //PDU TO BROKER
-                broker = CommandBroker.getInstance();
-                broker.takeOrder(broker.PDUConverter(message));
+                broker = ServerCommandBroker.getInstance();
+                PDU response = broker.execute(message);
+                
+                //broker.takeOrder(broker.PDUConverter(message));
                 //RUN BROKER
-                broker.placeOrders();
+                //broker.placeOrders();
 
                 
                 //Response
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 ObjectOutputStream os = new ObjectOutputStream(outputStream);
-                os.writeObject(message);
+                os.writeObject(response);
                 byte[] sendData = outputStream.toByteArray();
                 DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, port);
 
