@@ -18,9 +18,18 @@ public class ServerCommandFactory {
         
     }
     
-    public PDU Register(){
+    public PDU Register(boolean sucess){
+        PDU command;
+        ArrayList<String> message = new ArrayList<>(1);
         
-        PDU command = new PDU((byte)0,(byte)0,(short)1,(byte)2,(byte)1,(short)1,new ArrayList<String>());
+        if(sucess)
+            message.add("NICE"); 
+        else 
+            message.add("BADD"); 
+            
+            command = new PDU((byte)0,(byte)0,(short)1,(byte)2,(byte)1,(short)1,message);
+            
+            
         return command;
     }
     

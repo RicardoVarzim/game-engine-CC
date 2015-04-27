@@ -5,6 +5,7 @@
  */
 package Commands.ServerOrders;
 
+import BusinessEntities.UserBE;
 import Commands.*;
 import Core.*;
 
@@ -24,7 +25,8 @@ public class Register implements ServerOrder {
     
     @Override
     public PDU execute() {
-        return business.register();
+        UserBE user = new UserBE(message.fields.get(0),message.fields.get(1));
+        return business.register(user);
     }
     
 }

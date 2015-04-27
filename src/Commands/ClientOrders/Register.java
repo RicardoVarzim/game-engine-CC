@@ -7,6 +7,7 @@ package Commands.ClientOrders;
 
 import Commands.*;
 import Core.*;
+import UI.MainWindow;
 
 /**
  *
@@ -14,17 +15,21 @@ import Core.*;
  */
 public class Register implements ClientOrder {
 
-    private ServerBusinessLayer business;
+    private ClientBusinessLayer business;
     private PDU message;
     
     public Register(PDU message){
-        this.business = ServerBusinessLayer.getInstance();
+        this.business = ClientBusinessLayer.getInstance();
         this.message = message;
     }
     
     @Override
     public void execute() {
-        business.register();
+        //verificar se o PDU DE REGISTO é valido ou nao
+        
+            //registado com sucesso
+            MainWindow view = MainWindow.getInstance();
+            view.userPanel.UserPanelMessage.setText(message.fields.get(0));
     }
     
 }

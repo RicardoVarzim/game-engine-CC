@@ -1,16 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Core;
 
+import BusinessEntities.UserBE;
 import BusinessObjects.*;
+import Commands.ClientCommandFactory;
+import Commands.PDU;
+import UDPClient.UDPClient;
 
 public class ClientBusinessLayer {
     
     //create an object of SingleObject
     private static ClientBusinessLayer instance = new ClientBusinessLayer();
+    //staticClasses
+    static UDPClient udpClient;
     //GlobalVars
     private GameBO _gameBO;
     private UserBO _userBO;
@@ -27,10 +28,15 @@ public class ClientBusinessLayer {
     }
     
     public void hello(){
-        System.out.println("Hello");
+        ClientCommandFactory factory = new ClientCommandFactory();
+        udpClient = new UDPClient(factory.Hello());
+        new Thread(udpClient).start();
     }
     
-    public void register(){
-        System.out.println("register");
+    public void register(UserBE user){
+        ClientCommandFactory factory = new ClientCommandFactory();
+        udpClient = new UDPClient(factory.Register(user));
+        new Thread(udpClient).start();
     }
+	
 }

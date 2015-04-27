@@ -5,6 +5,7 @@
  */
 package Core;
 
+import BusinessEntities.UserBE;
 import BusinessObjects.*;
 import Commands.PDU;
 import Commands.ServerCommandFactory;
@@ -35,7 +36,16 @@ public class ServerBusinessLayer {
         return factory.Hello();
     }
     
-    public PDU register(){
-        return factory.Register();
+    public PDU register(UserBE user){
+        //TODO Logica de negocia aqui
+        //registar user
+            if(_userBO.validUsername(user)){
+                _userBO.create(user);
+                return factory.Register(true);
+            }
+            //verificar se nome ja existe
+            //registar
+        //factory registar bem sucedido
+        return factory.Register(false);
     }
 }
