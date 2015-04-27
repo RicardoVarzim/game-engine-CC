@@ -7,20 +7,23 @@ import java.util.List;
 public class GameBO implements BusinessObject<GameBE>  {
     
     List<GameBE> games;
-            
+    int nextId;
+    
     public GameBO(){
-       games = new ArrayList<>();     	
+       games = new ArrayList<>();    
+       nextId = 0;
     } 
 
     @Override
     public synchronized GameBE create(GameBE o) {
-        o.id = games.size();
+        o.id = nextId;
         games.add(o);
+        nextId = nextId++;
         return o;
     }
 
     @Override
-    public synchronized Object get(int id) {
+    public synchronized GameBE get(int id) {
         return games.get(id);
     }
 

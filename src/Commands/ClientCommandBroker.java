@@ -1,10 +1,6 @@
 package Commands;
 
-import Commands.ClientOrders.Register;
-import Commands.ClientOrders.Hello;
-import BusinessObjects.GameBO;
-import BusinessObjects.UserBO;
-import Core.ClientBusinessLayer;
+import Commands.ClientOrders.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +44,9 @@ public class ClientCommandBroker {
         }
         if(message.type == (byte)2){
             result = new Register(message);
+        }
+        if(message.type == (byte)3){
+            result = new Login(message);
         }
              
         return result;

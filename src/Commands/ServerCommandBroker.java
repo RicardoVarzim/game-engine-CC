@@ -52,6 +52,9 @@ public class ServerCommandBroker {
         if(message.type == (byte)2){
             result = new Register(message);
         }
+        if(message.type == (byte)3){
+            result = new Login(message);
+        }
              
         return result;
     }

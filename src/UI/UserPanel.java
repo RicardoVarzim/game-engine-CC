@@ -97,11 +97,14 @@ public class UserPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        //Login: 
+        UserBE user = new UserBE(Username.getText(),Password.getPassword().toString());
+         ClientBusinessLayer client = ClientBusinessLayer.getInstance();
+         client.login(user);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO Registar:
+        //Registar:
          UserBE user = new UserBE(Username.getText(),Password.getPassword().toString());
          ClientBusinessLayer client = ClientBusinessLayer.getInstance();
          client.register(user);

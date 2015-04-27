@@ -37,15 +37,25 @@ public class ServerBusinessLayer {
     }
     
     public PDU register(UserBE user){
-        //TODO Logica de negocia aqui
-        //registar user
-            if(_userBO.validUsername(user)){
-                _userBO.create(user);
-                return factory.Register(true);
-            }
-            //verificar se nome ja existe
-            //registar
-        //factory registar bem sucedido
+        
+        if(_userBO.validUsername(user)){
+   
+            _userBO.create(user);
+            return factory.Register(true);
+        }  
         return factory.Register(false);
+    }
+
+    public PDU login(UserBE user) {
+        int id = _userBO.login(user);
+        if(id>=0){
+            
+            user = (UserBE) _userBO.get(id);
+            user.setLoggedIn(true);
+            _userBO.update(user);
+            
+            return factory.Login(true);
+        }
+        return factory.Login(false);
     }
 }

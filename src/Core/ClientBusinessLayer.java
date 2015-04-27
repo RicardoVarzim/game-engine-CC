@@ -38,5 +38,11 @@ public class ClientBusinessLayer {
         udpClient = new UDPClient(factory.Register(user));
         new Thread(udpClient).start();
     }
+    
+    public void login(UserBE user){
+        ClientCommandFactory factory = new ClientCommandFactory();
+        udpClient = new UDPClient(factory.Login(user));
+        new Thread(udpClient).start();
+    }
 	
 }
