@@ -5,6 +5,7 @@
  */
 package Commands;
 
+import BusinessEntities.GameBE;
 import BusinessEntities.UserBE;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,26 @@ public class ClientCommandFactory {
         list.add(user.getPassword());
         PDU command = new PDU((byte)0,(byte)0,(short)1,(byte)3,(byte)1,(short)1, list);
         return command;
+    }
+
+    public PDU Logout() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public PDU Quit() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public PDU End() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public PDU List_challenges() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public PDU Make_challenge(GameBE game) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
      
 }

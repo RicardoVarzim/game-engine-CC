@@ -1,9 +1,9 @@
 package Core;
 
+import BusinessEntities.GameBE;
 import BusinessEntities.UserBE;
 import BusinessObjects.*;
 import Commands.ClientCommandFactory;
-import Commands.PDU;
 import UDPClient.UDPClient;
 
 public class ClientBusinessLayer {
@@ -44,5 +44,34 @@ public class ClientBusinessLayer {
         udpClient = new UDPClient(factory.Login(user));
         new Thread(udpClient).start();
     }
+    
+    public void logout(){
+        ClientCommandFactory factory = new ClientCommandFactory();
+        udpClient = new UDPClient(factory.Logout());
+        new Thread(udpClient).start();
+    }
+    
+    public void quit(){
+        ClientCommandFactory factory = new ClientCommandFactory();
+        udpClient = new UDPClient(factory.Quit());
+        new Thread(udpClient).start();
+    }
+    
+    public void end(){
+        ClientCommandFactory factory = new ClientCommandFactory();
+        udpClient = new UDPClient(factory.End());
+        new Thread(udpClient).start();
+    }
 	
+    public void list_challenges(){
+        ClientCommandFactory factory = new ClientCommandFactory();
+        udpClient = new UDPClient(factory.List_challenges());
+        new Thread(udpClient).start();
+    }
+    
+    public void make_challenge(GameBE game){
+        ClientCommandFactory factory = new ClientCommandFactory();
+        udpClient = new UDPClient(factory.Make_challenge(game));
+        new Thread(udpClient).start();
+    }
 }

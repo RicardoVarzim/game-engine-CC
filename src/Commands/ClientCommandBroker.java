@@ -49,6 +49,22 @@ public class ClientCommandBroker {
             result = new Login(message);
         }
              
+        //TODO: check bytes
+        if(message.type == (byte)4){
+            result = new Logout(message);
+        }
+        if(message.type == (byte)5){
+            result = new Quit(message);
+        }
+        if(message.type == (byte)6){
+            result = new End(message);
+        }
+        if(message.type == (byte)7){
+            result = new ListChallenges(message);
+        }
+        if(message.type == (byte)8){
+            result = new MakeChallenge(message);
+        }
         return result;
     }
 }

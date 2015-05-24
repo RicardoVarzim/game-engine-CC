@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/MultiplayerGameEngineCC/src/Builder/GameBuilder.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/MultiplayerGameEngineCC/src/BusinessEntities/QuestionBE.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/MultiplayerGameEngineCC/src/BusinessObjects/GameBO.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/MultiplayerGameEngineCC/src/BusinessObjects/UserBO.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/MultiplayerGameEngineCC/src/BusinessEntities/UserBE.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/MultiplayerGameEngineCC/src/BusinessEntities/GameBE.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/MultiplayerGameEngineCC/src/Commands/ClientOrders/Hello.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/MultiplayerGameEngineCC/src/GameEngineCC.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/MultiplayerGameEngineCC/src/Commands/ClientOrders/Login.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/MultiplayerGameEngineCC/src/Core/ClientBusinessLayer.java</file>
         </group>
     </open-files>
 </project-private>

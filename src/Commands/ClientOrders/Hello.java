@@ -8,17 +8,13 @@ package Commands.ClientOrders;
 import Commands.*;
 import Core.*;
 
-/**
- *
- * @author Ricardo
- */
 public class Hello implements ClientOrder {
 
-    private ServerBusinessLayer business;
+    private ClientBusinessLayer business;
     private PDU message;
     
     public Hello(PDU message){
-        this.business = ServerBusinessLayer.getInstance();
+        this.business = ClientBusinessLayer.getInstance();
         this.message = message;
     }
     

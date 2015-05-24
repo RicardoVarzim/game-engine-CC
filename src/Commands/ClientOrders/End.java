@@ -5,28 +5,27 @@
  */
 package Commands.ClientOrders;
 
-import Commands.*;
-import Core.*;
-import UI.MainWindow;
+import Commands.ClientOrder;
+import Commands.PDU;
+import Core.ClientBusinessLayer;
 
 /**
  *
  * @author Ricardo
  */
-public class Login implements ClientOrder {
+public class End implements ClientOrder {
 
     private ClientBusinessLayer business;
     private PDU message;
     
-    public Login(PDU message){
+    public End(PDU message) {
         this.business = ClientBusinessLayer.getInstance();
         this.message = message;
     }
-    
+
     @Override
     public void execute() {
-        MainWindow view = MainWindow.getInstance();
-        view.userPanel.UserPanelMessage.setText(message.fields.get(0));
+        business.end();
     }
     
 }

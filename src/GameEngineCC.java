@@ -1,13 +1,6 @@
-
-
-
-import BusinessEntities.UserBE;
-import Commands.*;
-import Core.*;
 import UDPClient.*;
 import UDPServer.*;
 import UI.MainWindow;
-import static java.lang.Thread.sleep;
 
 public class GameEngineCC {
 
@@ -47,26 +40,7 @@ public class GameEngineCC {
             }
         });
         
-         
-//        
-//            ClientCommandFactory clientFactory = new ClientCommandFactory();        
-//            UserBE admin = new UserBE("admin","12345");
-//            //Initialize Client
-//            udpClient = new UDPClient(clientFactory.Hello());
-//            new Thread(udpClient).start();
-//            
-//            sleep(10000);
-//            //Initialize Client
-//            udpClient = new UDPClient(clientFactory.Register(admin));
-//            new Thread(udpClient).start();
-//            
-//            sleep(10000);
-//            //Initialize Client
-//            udpClient = new UDPClient(clientFactory.Register(admin));
-//            new Thread(udpClient).start();
-            
-          
- 
+      
     }
     
 }
