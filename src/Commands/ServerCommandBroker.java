@@ -1,9 +1,7 @@
 package Commands;
 
+
 import Commands.ServerOrders.*;
-import BusinessObjects.GameBO;
-import BusinessObjects.UserBO;
-import Core.ServerBusinessLayer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +53,37 @@ public class ServerCommandBroker {
         if(message.type == (byte)3){
             result = new Login(message);
         }
-             
+        if(message.type == (byte)4){
+            result = new Logout(message);
+        }
+        if(message.type == (byte)5){
+            result = new Quit(message);
+        }
+        if(message.type == (byte)6){
+            result = new End(message);
+        }
+        if(message.type == (byte)7){
+            result = new List_challenges(message);
+        }
+        if(message.type == (byte)8){
+            result = new Make_challenge(message);
+        }  
+        if(message.type == (byte)9){
+            result = new Accept_challenge(message);
+        }  
+        if(message.type == (byte)10){
+            result = new Delete_challenge(message);
+        }
+        if(message.type == (byte)11){
+            result = new Answer(message);
+        }
+        if(message.type == (byte)12){
+            result = new Retransmit(message);
+        }
+        if(message.type == (byte)13){
+            result = new List_ranking(message);
+        }
+        
         return result;
     }
 }
