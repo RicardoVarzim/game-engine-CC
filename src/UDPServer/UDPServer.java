@@ -1,6 +1,5 @@
 package UDPServer;
 
-import UI.MainWindow;
 import java.io.*; 
 import java.net.*; 
 import java.util.logging.Level;
@@ -25,8 +24,7 @@ public class UDPServer implements Runnable {
             byte[] sendData  = new byte[1024]; 
             
 
-            MainWindow mainwindow = MainWindow.getInstance();
-            mainwindow.mainPanel.ButtonMessage.setText("The server is running. UDP Port "+port);
+            System.out.println("The server is running. UDP Port "+port);
             
             while(true) 
             { 
@@ -43,8 +41,6 @@ public class UDPServer implements Runnable {
             } 
         }
         catch (SocketException ex) {
-            MainWindow mainwindow = MainWindow.getInstance();
-            mainwindow.mainPanel.ButtonMessage.setText("UDP Port "+port+" is occupied. A server is already running.");
             System.out.println("UDP Port "+port+" is occupied. A server is already running.");
         } catch (IOException ex) {
             Logger.getLogger(UDPServer.class.getName()).log(Level.SEVERE, null, ex);
