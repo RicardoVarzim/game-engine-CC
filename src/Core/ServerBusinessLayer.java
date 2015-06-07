@@ -32,6 +32,12 @@ public class ServerBusinessLayer {
         return instance;
     }
     
+        /**PUBLIC METHODS**/
+    public int labelGen() {
+        return _userBO.getNextFreeId();
+    }
+    
+        /** PUBLIC COMMANDS**/
     public PDU hello(){
         return factory.Hello();
     }

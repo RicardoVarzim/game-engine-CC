@@ -5,6 +5,7 @@
  */
 package Commands;
 
+import Core.ServerBusinessLayer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +18,13 @@ public class ServerCommandFactory {
     public ServerCommandFactory(){
         
     }
-    
-     
+
+    /** COMMANDS **/
     public PDU Hello(){
         
-        PDU command = new PDU((byte)0,(byte)0,(short)1,(byte)1,(byte)1,(short)1,new ArrayList<>());
+        int labelGenerated = ServerBusinessLayer.getInstance().labelGen();
+        PDU command = new PDU((byte)0,(byte)0,(short)labelGenerated,(byte)1,(byte)1,(short)1);
+        
         return command;
     }
      
