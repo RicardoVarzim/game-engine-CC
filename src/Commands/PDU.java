@@ -26,7 +26,7 @@ public class PDU implements Serializable {
         this.label = l;
         this.type = t;
         this.nfields = nf;
-        this.fieldsize = fs;
+        this.fieldsize = (short) lf.length;
         this.fields = lf;
     }
     
@@ -36,8 +36,9 @@ public class PDU implements Serializable {
         this.label = l;
         this.type = t;
         this.nfields = nf;
-        this.fieldsize = fs;
         this.fields = parserToByte(alf);
+        this.fieldsize = (short) fields.length;
+        
     }
     
     public PDU(byte v, byte s, short l, byte t, byte nf, short fs){
