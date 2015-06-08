@@ -5,6 +5,7 @@
  */
 package Commands.ServerOrders;
 
+import Commands.CommandFactory;
 import Commands.PDU;
 import Commands.Order;
 import Core.ServerBusinessLayer;
@@ -17,13 +18,18 @@ public class Accept_challenge implements Order {
 
     private ServerBusinessLayer business;
     private PDU message;
+    private Commands.CommandFactory factory;
     
     public Accept_challenge(PDU message) {
+        this.business = ServerBusinessLayer.getInstance();
+        this.message = message;
+        this.factory = new CommandFactory();
     }
 
     @Override
     public PDU execute() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return factory.End(true);
     }
     
 }
