@@ -20,10 +20,12 @@ public class Register implements Order {
 
     private ServerBusinessLayer business;
     private PDU message;
+    private CommandFactory factory;
     
     public Register(PDU message){
         this.business = ServerBusinessLayer.getInstance();
         this.message = message;
+        this.factory = new CommandFactory();
     }
     
     @Override
@@ -33,9 +35,9 @@ public class Register implements Order {
             UserBE user = new UserBE(fields.get(0),fields.get(1));
             return business.register(user);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+            return factory.Erro();
         }
-        return null;
+        
     }
     
 }

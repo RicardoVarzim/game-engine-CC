@@ -44,7 +44,7 @@ public class CommandFactory {
      
      public PDU Login(boolean sucess){
         PDU command;
-        ArrayList<String> message = new ArrayList<>(1);
+        ArrayList<String> message = new ArrayList<>();
         
         if(sucess){
              message.add("0");
@@ -103,6 +103,10 @@ public class CommandFactory {
         command = new PDU((byte)0,(byte)0,(short)1,(byte)3,(byte)1,(short)1,message);
             
         return command;
+    }
+
+    public PDU Erro() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
