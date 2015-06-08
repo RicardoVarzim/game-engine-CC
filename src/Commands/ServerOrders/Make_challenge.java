@@ -40,10 +40,7 @@ public class Make_challenge implements Order {
             game = new GameBE(fields.get(0));
             game.setStartDate(parser.stringToCalendar(fields.get(1)));
             
-            if(business.addGame(game))
-                return factory.MakeChallenge(true);
-            else
-                return factory.MakeChallenge(false);
+            return business.MakeChallenge(game);
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Make_challenge.class.getName()).log(Level.SEVERE, null, ex);

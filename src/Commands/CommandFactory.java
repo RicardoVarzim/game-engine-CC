@@ -25,7 +25,7 @@ public class CommandFactory {
      
     public PDU Register(boolean sucess){
         PDU command;
-        ArrayList<String> message = new ArrayList<>(1);
+        ArrayList<String> message = new ArrayList<>();
         
         if(sucess){
             message.add("0");
@@ -82,6 +82,25 @@ public class CommandFactory {
         PDU command;
         
         command = new PDU((byte)0,(byte)0,(short)1,(byte)3,(byte)challenges.size(),(short)1,challenges);
+            
+        return command;
+    }
+
+    public PDU End(boolean sucess) {
+        PDU command;
+        ArrayList<String> message = new ArrayList<>(1);
+        
+        if(sucess){
+             message.add("0");
+             message.add("Challenge created");
+        }
+             
+        else {
+             message.add("255");
+             message.add("Sorry! Something wrong");  
+        }
+            
+        command = new PDU((byte)0,(byte)0,(short)1,(byte)3,(byte)1,(short)1,message);
             
         return command;
     }

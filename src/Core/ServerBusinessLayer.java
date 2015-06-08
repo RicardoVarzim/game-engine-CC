@@ -72,8 +72,9 @@ public class ServerBusinessLayer {
         return _factory.Login(false);
     }
 
-    public boolean addGame(GameBE game) {
+    public PDU MakeChallenge(GameBE game) {
         
+        //TODO: VERIFICAR nome jogo
         ArrayList<QuestionBE> list = (ArrayList<QuestionBE>) _questionBO.getAll();
         long seed = System.nanoTime();
         Collections.shuffle(list, new Random(seed));
@@ -84,6 +85,14 @@ public class ServerBusinessLayer {
         //guardar no bo
         _gameBO.create(game);
         
-        return true;
+        return _factory.MakeChallenge(true);
+    }
+
+    public ArrayList<String> getListChallenges() {
+        ArrayList<String> result = getListChallenges();
+        for(GameBE item:_gameBO.getAll()){
+            result.add(item.getName());
+        }
+        return result;
     }
 }

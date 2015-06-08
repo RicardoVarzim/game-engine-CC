@@ -62,7 +62,7 @@ public class PDU implements Serializable {
     private byte[] parserToByte(ArrayList list) {
         String data = "";
         for (Object item : list) {
-            data = data +";"+ (String) item;
+             data = data + (String) item + ";";
         }
         return data.getBytes();
     }
