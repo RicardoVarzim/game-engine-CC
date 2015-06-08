@@ -6,13 +6,13 @@
 package Commands.ServerOrders;
 
 import Commands.PDU;
-import Commands.ServerOrder;
+import Commands.Order;
 
 /**
  *
  * @author Ricardo
  */
-public class Retransmit implements ServerOrder {
+public class Retransmit implements Order {
 
     public Retransmit(PDU message) {
     }

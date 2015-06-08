@@ -71,7 +71,7 @@ public class UserBO implements BusinessObject<UserBE>  {
     }
 
     public int getNextFreeId() {
-        return nextId;
+        return nextId++;
     }
    
 }

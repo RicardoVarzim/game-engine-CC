@@ -6,13 +6,13 @@
 package Commands.ServerOrders;
 
 import Commands.PDU;
-import Commands.ServerOrder;
+import Commands.Order;
 
 /**
  *
  * @author Ricardo
  */
-public class Logout implements ServerOrder {
+public class Logout implements Order {
 
     public Logout(PDU message) {
     }

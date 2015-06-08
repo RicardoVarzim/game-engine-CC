@@ -5,22 +5,22 @@ import Commands.ServerOrders.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServerCommandBroker {
+public class CommandBroker {
     //create an object of SingleObject
-    private static ServerCommandBroker instance = new ServerCommandBroker();
+    private static CommandBroker instance = new CommandBroker();
     
-    private List<ServerOrder> _orderList ; 
+    private List<Order> _orderList ; 
 
-    private ServerCommandBroker(){
-        this._orderList = new ArrayList<ServerOrder>();
+    private CommandBroker(){
+        this._orderList = new ArrayList<Order>();
     }
 
     //Get the only object available
-    public static ServerCommandBroker getInstance(){
+    public static CommandBroker getInstance(){
         return instance;
     }
     
-    public synchronized void takeOrder(ServerOrder order){
+    public synchronized void takeOrder(Order order){
         _orderList.add(order);		
     }
 
@@ -30,19 +30,19 @@ public class ServerCommandBroker {
     }
     
     public synchronized PDU execute(PDU p){
-        ServerOrder order = PDUConverter(p);
+        Order order = PDUConverter(p);
         return order.execute();
     }
     public synchronized void placeOrders(){
    
-        for (ServerOrder order : _orderList) {
+        for (Order order : _orderList) {
             order.execute();
         }
         _orderList.clear();
     } 
     
-    public ServerOrder PDUConverter(PDU message){
-        ServerOrder result = null;
+    public Order PDUConverter(PDU message){
+        Order result = null;
                 
         if(message.type == (byte)1){
             result = new Hello(message);

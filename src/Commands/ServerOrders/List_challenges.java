@@ -6,13 +6,13 @@
 package Commands.ServerOrders;
 
 import Commands.PDU;
-import Commands.ServerOrder;
+import Commands.Order;
 
 /**
  *
  * @author Ricardo
  */
-public class List_challenges implements ServerOrder {
+public class List_challenges implements Order {
 
     public List_challenges(PDU message) {
     }

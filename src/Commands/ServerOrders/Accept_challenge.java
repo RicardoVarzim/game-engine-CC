@@ -6,14 +6,14 @@
 package Commands.ServerOrders;
 
 import Commands.PDU;
-import Commands.ServerOrder;
+import Commands.Order;
 import Core.ServerBusinessLayer;
 
 /**
  *
  * @author Ricardo
  */
-public class Accept_challenge implements ServerOrder {
+public class Accept_challenge implements Order {
 
     private ServerBusinessLayer business;
     private PDU message;

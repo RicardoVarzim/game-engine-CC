@@ -6,7 +6,6 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -53,26 +52,10 @@ public class PDU implements Serializable {
     
     public ArrayList<String> getFields() throws ClassNotFoundException{
         
-        ObjectInputStream is = null;
         ArrayList<String> result = new ArrayList<>();
         
-        try {
-            
-            
-            ByteArrayInputStream in = new ByteArrayInputStream(this.fields);
-            is = new ObjectInputStream(in);
-            String temp = (String) is.readObject();
-            result.addAll(Arrays.asList(temp.split(";")));
-            
-        } catch (IOException ex) {
-            Logger.getLogger(PDU.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                is.close();
-            } catch (IOException ex) {
-                Logger.getLogger(PDU.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+        String str = new String(this.fields);
+        result.addAll(Arrays.asList(str.split(";")));
         return result;
     }
 

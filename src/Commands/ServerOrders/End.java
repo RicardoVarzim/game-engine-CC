@@ -6,13 +6,13 @@
 package Commands.ServerOrders;
 
 import Commands.PDU;
-import Commands.ServerOrder;
+import Commands.Order;
 
 /**
  *
  * @author Ricardo
  */
-public class End implements ServerOrder {
+public class End implements Order {
 
     public End(PDU message) {
     }

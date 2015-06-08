@@ -1,5 +1,5 @@
 package Commands;
 
-public interface ServerOrder {   
+public interface Order {   
     PDU execute();
 }

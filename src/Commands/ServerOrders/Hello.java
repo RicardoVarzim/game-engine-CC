@@ -12,7 +12,7 @@ import Core.*;
  *
  * @author Ricardo
  */
-public class Hello implements ServerOrder {
+public class Hello implements Order {
 
     private ServerBusinessLayer business;
     private PDU message;

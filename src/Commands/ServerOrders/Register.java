@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author Ricardo
  */
-public class Register implements ServerOrder {
+public class Register implements Order {
 
     private ServerBusinessLayer business;
     private PDU message;

@@ -6,13 +6,13 @@
 package Commands.ServerOrders;
 
 import Commands.PDU;
-import Commands.ServerOrder;
+import Commands.Order;
 
 /**
  *
  * @author Ricardo
  */
-public class Delete_challenge implements ServerOrder {
+public class Delete_challenge implements Order {
 
     public Delete_challenge(PDU message) {
     }
