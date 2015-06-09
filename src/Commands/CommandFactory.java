@@ -73,7 +73,7 @@ public class CommandFactory {
              message.add("Sorry! Something wrong");  
         }
             
-        command = new PDU((byte)0,(byte)0,(short)1,(byte)4,(byte)1,(short)1,message);
+        command = new PDU((byte)0,(byte)0,(short)1,(byte)8,(byte)1,(short)1,message);
             
         return command;
     }
