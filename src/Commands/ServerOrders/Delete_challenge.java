@@ -5,8 +5,13 @@
  */
 package Commands.ServerOrders;
 
+import Commands.CommandFactory;
 import Commands.PDU;
 import Commands.Order;
+import Core.ServerBusinessLayer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -14,12 +19,25 @@ import Commands.Order;
  */
 public class Delete_challenge implements Order {
 
+    private ServerBusinessLayer business;
+    private PDU message;
+    private Commands.CommandFactory factory;
+    
     public Delete_challenge(PDU message) {
+        this.business = ServerBusinessLayer.getInstance();
+        this.message = message;
+        this.factory = new CommandFactory();
     }
 
     @Override
     public PDU execute() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        try {
+            return business.Accept_challenge(message.getFields().get(0), message.label);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Accept_challenge.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
 }
