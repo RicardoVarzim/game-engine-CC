@@ -51,8 +51,4 @@ public class GameBO implements BusinessObject<GameBE>  {
         return null;
     }
     
-    /*public synchronized void accept_challenge(int idGame, int userID) {
-       games.get(idGame).addUser(userID);
-    }*/
-    
 }
