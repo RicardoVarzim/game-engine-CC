@@ -41,5 +41,17 @@ public class GameBO implements BusinessObject<GameBE>  {
     public synchronized void delete(GameBE o) {
         games.remove(o.getId());
     }
-
+    
+    @Override
+    public synchronized GameBE getByName(String name){
+        for(GameBE game: games){
+        if(game.getName == name)
+        return game;
+        }
+    }
+    
+    /*public synchronized void accept_challenge(int idGame, int userID) {
+       games.get(idGame).addUser(userID);
+    }/*
+    
 }
