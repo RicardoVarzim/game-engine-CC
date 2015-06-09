@@ -7,19 +7,22 @@ package Commands.ServerOrders;
 
 import Commands.PDU;
 import Commands.Order;
+import Core.ServerBusinessLayer;
 
 /**
  *
  * @author Ricardo
  */
 public class Logout implements Order {
-
-    public Logout(PDU message) {
+private ServerBusinessLayer business;
+    private PDU message;
+    public Logout(PDU message) {this.business = ServerBusinessLayer.getInstance();
+        this.message = message;
     }
 
     @Override
     public PDU execute() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return business.logout(message.label);
     }
     
 }

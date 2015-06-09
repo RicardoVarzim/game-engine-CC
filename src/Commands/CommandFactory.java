@@ -126,5 +126,22 @@ public class CommandFactory {
             
         return command;
     }
+
+    public PDU logout(boolean sucess, short label) {
+        PDU command;
+        ArrayList<String> message = new ArrayList<>(1);
+        
+        if(sucess){
+             message.add("0");
+             message.add("Logout successful!");
+        }
+             
+        else {
+             message.add("255");
+             message.add("Sorry! Something wrong");  
+        }
+        command = new PDU((byte)0,(byte)0,(short)1,(byte)3,(byte)1,(short)1,message);
+        return command;
+    }
     
 }

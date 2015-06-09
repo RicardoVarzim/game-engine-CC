@@ -97,4 +97,9 @@ public class ServerBusinessLayer {
         game.addUser(user.getId());
         return _factory.Accept_challenge(true);
     }
+
+    public PDU logout(short label) {
+        
+        return _factory.logout(true,label);
+    }
 }
