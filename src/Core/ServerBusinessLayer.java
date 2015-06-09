@@ -95,4 +95,10 @@ public class ServerBusinessLayer {
         }
         return result;
     }
+    
+    public PDU Accept_challenge(GameBE game, UserBE user)
+    {
+        game.addUser(user.getId());
+        return _factory.Accept_challenge(true)
+    }
 }
