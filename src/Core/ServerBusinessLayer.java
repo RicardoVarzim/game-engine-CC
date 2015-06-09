@@ -101,12 +101,19 @@ public class ServerBusinessLayer {
         return _factory.Accept_challenge(true,game);
     }
     
-      public PDU Delete_challenge(GameBE game)
+      public PDU Delete_challenge(String game)
     {
-        GameBE temp =_gameBO.getByName(game.getName());
+        GameBE temp =_gameBO.getByName(game);
        _gameBO.delete(temp);
         return _factory.Delete_challenge(true);
     }
+      
+     /* public PDU Answer(String game, String question, int user)
+    {
+        GameBE temp =_gameBO.getByName(game.getName());
+       _gameBO.delete(temp);
+        return _factory.Accept_challenge(true);
+    }*/
 
     public PDU logout(short label) {
         
