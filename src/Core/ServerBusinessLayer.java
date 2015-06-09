@@ -94,7 +94,16 @@ public class ServerBusinessLayer {
     
     public PDU Accept_challenge(GameBE game, UserBE user)
     {
-        game.addUser(user.getId());
+        GameBE temp =_gameBO.getByName(game.getName());
+        temp.addUser(user.getId());
+       _gameBO.update(temp);
+        return _factory.Accept_challenge(true);
+    }
+    
+      public PDU Delete_challenge(GameBE game)
+    {
+        GameBE temp =_gameBO.getByName(game.getName());
+       _gameBO.delete(temp);
         return _factory.Accept_challenge(true);
     }
 }
