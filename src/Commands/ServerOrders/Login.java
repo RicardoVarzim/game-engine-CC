@@ -32,6 +32,7 @@ public class Login implements Order {
         try {
             ArrayList<String> fields = message.getFields();
             user = new UserBE(fields.get(0),fields.get(1));
+            return business.login(user);
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);

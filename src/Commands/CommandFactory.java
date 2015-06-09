@@ -17,8 +17,7 @@ public class CommandFactory {
     /** COMMANDS **/
     public PDU Hello(){
         
-        int labelGenerated = ServerBusinessLayer.getInstance().labelGen();
-        PDU command = new PDU((byte)0,(byte)0,(short)labelGenerated,(byte)1,(byte)1,(short)1);
+        PDU command = new PDU((byte)0,(byte)0,(short)0,(byte)1,(byte)1,(short)1);
         
         return command;
     }
@@ -42,7 +41,7 @@ public class CommandFactory {
     }
    
      
-     public PDU Login(boolean sucess){
+     public PDU Login(boolean sucess, int idUser){
         PDU command;
         ArrayList<String> message = new ArrayList<>();
         
@@ -55,7 +54,8 @@ public class CommandFactory {
              message.add("Sorry! Wrong Username or password or both!!");  
         }
         command = new PDU((byte)0,(byte)0,(short)1,(byte)3,(byte)1,(short)1,message);
-
+        command.label = (short)idUser;
+        
         return command;
     }
      
@@ -73,7 +73,7 @@ public class CommandFactory {
              message.add("Sorry! Something wrong");  
         }
             
-        command = new PDU((byte)0,(byte)0,(short)1,(byte)3,(byte)1,(short)1,message);
+        command = new PDU((byte)0,(byte)0,(short)1,(byte)4,(byte)1,(short)1,message);
             
         return command;
     }
@@ -81,7 +81,7 @@ public class CommandFactory {
     public PDU ListChallenge(ArrayList<String> challenges){
         PDU command;
         
-        command = new PDU((byte)0,(byte)0,(short)1,(byte)3,(byte)challenges.size(),(short)1,challenges);
+        command = new PDU((byte)0,(byte)0,(short)1,(byte)5,(byte)challenges.size(),(short)1,challenges);
             
         return command;
     }
@@ -99,7 +99,7 @@ public class CommandFactory {
              message.add("Sorry! Something wrong");  
         }
             
-        command = new PDU((byte)0,(byte)0,(short)1,(byte)3,(byte)1,(short)1,message);
+        command = new PDU((byte)0,(byte)0,(short)1,(byte)6,(byte)1,(short)1,message);
             
         return command;
     }

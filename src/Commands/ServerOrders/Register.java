@@ -34,7 +34,7 @@ public class Register implements Order {
             ArrayList<String> fields = message.getFields();
             UserBE user = new UserBE(fields.get(0),fields.get(1));
             return business.register(user);
-        } catch (ClassNotFoundException ex) {
+        } catch (Exception ex) {
             return factory.Erro();
         }
         

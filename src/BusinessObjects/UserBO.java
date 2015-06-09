@@ -11,12 +11,7 @@ public class UserBO implements BusinessObject<UserBE>  {
 
     public UserBO(){
         users = new ArrayList<UserBE>();
-        nextId = 0;
-        //Beta Testers
-        UserBE user1 = new UserBE("Robert","213");
-        UserBE user2 = new UserBE("John","123");
-        create(user1);
-        create(user2);		
+        nextId = 0;		
     }
 
     @Override
@@ -64,14 +59,12 @@ public class UserBO implements BusinessObject<UserBE>  {
         String password = o.getPassword();
         
         for(UserBE user : users){
-            if(user.getName() == username && user.getPassword() == password)
-                return user.id;
+            if( user.getName().equals(username) && user.getPassword().equals(password) ){
+                return user.getId();
+            }
+                
         }
         return -1;
-    }
-
-    public int getNextFreeId() {
-        return nextId++;
     }
    
 }

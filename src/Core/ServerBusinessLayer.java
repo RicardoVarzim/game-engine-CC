@@ -38,11 +38,7 @@ public class ServerBusinessLayer {
     public static ServerBusinessLayer getInstance(){
         return instance;
     }
-    
-        /**PUBLIC METHODS**/
-    public int labelGen() {
-        return _userBO.getNextFreeId();
-    }
+
     
         /** PUBLIC COMMANDS**/
     public PDU hello(){
@@ -67,9 +63,9 @@ public class ServerBusinessLayer {
             user.setLoggedIn(true);
             _userBO.update(user);
             
-            return _factory.Login(true);
+            return _factory.Login(true,id);
         }
-        return _factory.Login(false);
+        return _factory.Login(false,0);
     }
 
     public PDU MakeChallenge(GameBE game) {
