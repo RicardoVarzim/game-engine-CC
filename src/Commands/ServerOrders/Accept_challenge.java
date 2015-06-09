@@ -9,6 +9,8 @@ import Commands.CommandFactory;
 import Commands.PDU;
 import Commands.Order;
 import Core.ServerBusinessLayer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,7 +31,12 @@ public class Accept_challenge implements Order {
     @Override
     public PDU execute() {
         
-        return factory.End(true);
+        try {
+            return business.Accept_challenge(message.getFields().get(0), message.label);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Accept_challenge.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
 }

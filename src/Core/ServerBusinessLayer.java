@@ -85,18 +85,19 @@ public class ServerBusinessLayer {
     }
 
     public ArrayList<String> getListChallenges() {
-        ArrayList<String> result = getListChallenges();
+        ArrayList<String> result = new ArrayList<>();
+        DateParser parser = new DateParser();
         for(GameBE item:_gameBO.getAll()){
-            result.add(item.getName());
+            result.add(item.getName()+"\t"+parser.calendarToString(item.getStartDate()));
         }
         return result;
     }
     
-    public PDU Accept_challenge(GameBE game, UserBE user)
+    public PDU Accept_challenge(String game, int user)
     {
-        GameBE temp =_gameBO.getByName(game.getName());
-        temp.addUser(user.getId());
-       _gameBO.update(temp);
+        GameBE temp =_gameBO.getByName(game);
+        temp.addUser(user);
+        _gameBO.update(temp);
         return _factory.Accept_challenge(true);
     }
     

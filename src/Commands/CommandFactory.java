@@ -81,7 +81,7 @@ public class CommandFactory {
     public PDU ListChallenge(ArrayList<String> challenges){
         PDU command;
         
-        command = new PDU((byte)0,(byte)0,(short)1,(byte)5,(byte)challenges.size(),(short)1,challenges);
+        command = new PDU((byte)0,(byte)0,(short)1,(byte)7,(byte)challenges.size(),(short)1,challenges);
             
         return command;
     }

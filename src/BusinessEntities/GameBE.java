@@ -37,6 +37,9 @@ public class GameBE  extends Entity {
          this.name = n;
     }
     
+    public GregorianCalendar getStartDate(){
+        return startDate;
+    }
     public void setStartDate(GregorianCalendar date){
         this.startDate = date;
     }
