@@ -83,6 +83,9 @@ public class CommandBroker {
         if(message.type == (byte)13){
             result = new List_ranking(message);
         }
+        if(message.type == (byte)14){
+            result = new RetransmitGame(message);
+        }
         
         return result;
     }

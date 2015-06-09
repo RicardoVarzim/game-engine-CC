@@ -98,18 +98,27 @@ public class ServerBusinessLayer {
         GameBE temp =_gameBO.getByName(game);
         temp.addUser(user);
         _gameBO.update(temp);
-        return _factory.Accept_challenge(true);
+        return _factory.Accept_challenge(true,game);
     }
     
       public PDU Delete_challenge(GameBE game)
     {
         GameBE temp =_gameBO.getByName(game.getName());
        _gameBO.delete(temp);
-        return _factory.Accept_challenge(true);
+        return _factory.Delete_challenge(true);
     }
 
     public PDU logout(short label) {
         
         return _factory.logout(true,label);
+    }
+
+    public PDU retransmitGame(String gName) {
+        GameBE game = _gameBO.getByName(gName);
+        ArrayList<QuestionBE> questionlist = new ArrayList<>(10);
+        for(int id : game.getQuestions()){
+           questionlist.add(_questionBO.get(id)); 
+        }
+        return _factory.retransmitGame(game,questionlist);
     }
 }

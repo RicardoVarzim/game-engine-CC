@@ -101,4 +101,14 @@ public class QuestionBE extends Entity {
         this.musica = o.musica;
         this.imagem = o.imagem;
     }
+    
+    public String toString(){
+        String result ;
+        result = pergunta+":";
+        for(String item : respostas){
+            result = result + ":" + item;
+        }
+        result = result + ":" + respCerta;
+        return result;
+    }
 }

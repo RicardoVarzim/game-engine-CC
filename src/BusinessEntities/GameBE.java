@@ -62,4 +62,8 @@ public class GameBE  extends Entity {
         }
         return result;
     }
+    
+    public List<Integer> getQuestions(){
+        return questions;
+    }
 }

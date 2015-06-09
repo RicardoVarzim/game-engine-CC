@@ -1,5 +1,7 @@
 package Commands;
 
+import BusinessEntities.GameBE;
+import BusinessEntities.QuestionBE;
 import Core.ServerBusinessLayer;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,16 +107,20 @@ public class CommandFactory {
     }
 
     public PDU Erro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PDU command;
+        ArrayList<String> message = new ArrayList<>(1);
+        message.add("255");
+        command = new PDU((byte)0,(byte)0,(short)1,(byte)0,(byte)1,(short)1,message);
+        return command; 
     }
     
-    public PDU Accept_challenge(boolean sucess){
+    public PDU Accept_challenge(boolean sucess,String game){
         PDU command;
         ArrayList<String> message = new ArrayList<>(1);
         
         if(sucess){
              message.add("0");
-             message.add("Challenge accepted");
+             message.add(game);
         }
              
         else {
@@ -159,6 +165,18 @@ public class CommandFactory {
              message.add("255");
              message.add("Sorry! Something wrong");  
         }
+        command = new PDU((byte)0,(byte)0,(short)1,(byte)3,(byte)1,(short)1,message);
+        return command;
+    }
+
+    public PDU retransmitGame(GameBE game, ArrayList<QuestionBE> questionlist) {
+        PDU command;
+        ArrayList<String> message = new ArrayList<>(1);
+        
+        message.add(game.getName());
+        for(QuestionBE item : questionlist)
+            message.add(item.toString());
+
         command = new PDU((byte)0,(byte)0,(short)1,(byte)3,(byte)1,(short)1,message);
         return command;
     }
