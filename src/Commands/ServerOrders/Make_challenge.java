@@ -30,6 +30,7 @@ public class Make_challenge implements Order {
         this.business = ServerBusinessLayer.getInstance();
         this.message = message;
         this.factory = new CommandFactory();
+        this.parser = new DateParser();
     }
 
     @Override
@@ -38,7 +39,8 @@ public class Make_challenge implements Order {
             GameBE game;
             ArrayList<String> fields = message.getFields();
             game = new GameBE(fields.get(0));
-            game.setStartDate(parser.stringToCalendar(fields.get(1)));
+            String data = fields.get(1);
+            game.setStartDate(parser.stringToCalendar(data));
             
             return business.MakeChallenge(game);
             
