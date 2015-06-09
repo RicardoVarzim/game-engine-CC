@@ -44,7 +44,7 @@ public class Make_challenge implements Order {
             
             return business.MakeChallenge(game);
             
-        } catch (ClassNotFoundException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Make_challenge.class.getName()).log(Level.SEVERE, null, ex);
             return factory.MakeChallenge(false);
         }

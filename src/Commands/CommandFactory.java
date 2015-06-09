@@ -180,5 +180,9 @@ public class CommandFactory {
         command = new PDU((byte)0,(byte)0,(short)1,(byte)3,(byte)1,(short)1,message);
         return command;
     }
+
+    public PDU retransmit(int iDblock, byte[] block) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

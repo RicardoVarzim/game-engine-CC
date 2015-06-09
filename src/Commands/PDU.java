@@ -50,7 +50,7 @@ public class PDU implements Serializable {
         this.fields = null;
     }
     
-    public ArrayList<String> getFields() throws ClassNotFoundException{
+    public ArrayList<String> getFields() {
         
         ArrayList<String> result = new ArrayList<>();
         

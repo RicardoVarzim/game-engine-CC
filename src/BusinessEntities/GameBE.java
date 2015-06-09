@@ -66,4 +66,8 @@ public class GameBE  extends Entity {
     public List<Integer> getQuestions(){
         return questions;
     }
+
+    public int getQuestionId(int idquestion) {
+        return this.questions.get(idquestion - 1);
+    }
 }

@@ -34,7 +34,7 @@ public class Login implements Order {
             user = new UserBE(fields.get(0),fields.get(1));
             return business.login(user);
             
-        } catch (ClassNotFoundException ex) {
+        } catch ( Exception ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
         return business.login(user);

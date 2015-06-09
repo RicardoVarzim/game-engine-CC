@@ -87,7 +87,7 @@ public class GameParser {
 
     public void parseDesafioWfp(String fileName) throws FileNotFoundException, IOException {
 
-        System.out.println("A ler o ficheiro "+fileName);
+        System.out.println("ficheiro "+fileName);
         BufferedReader br = new BufferedReader(new FileReader(fileName));
         String sCurrentLine;
 
@@ -110,7 +110,7 @@ public class GameParser {
                 perguntas.add(parseLine(sCurrentLine));
             }
         }
-        System.out.println("Ficheiro lido com sucesso!");
+        System.out.println("Desafios inseridos com sucesso!");
 
     }
 

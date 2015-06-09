@@ -34,7 +34,7 @@ public class RetransmitGame implements Order {
         try {
             ArrayList<String> fields = message.getFields();
             return business.retransmitGame(fields.get(0));
-        } catch (ClassNotFoundException ex) {
+        } catch (Exception ex) {
             return factory.Erro();
         }
     }

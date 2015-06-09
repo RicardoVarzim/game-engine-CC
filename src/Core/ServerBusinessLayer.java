@@ -128,4 +128,17 @@ public class ServerBusinessLayer {
         }
         return _factory.retransmitGame(game,questionlist);
     }
+
+    public PDU retransmit(String gName, int idquestion, int iDblock) {
+        GameBE game =_gameBO.getByName(gName);
+        QuestionBE question = _questionBO.get(game.getQuestionId(idquestion));
+        byte[] block = getMusic(question.getMusica(),iDblock);
+        return _factory.retransmit(iDblock, block);
+}
+
+    private byte[] getMusic(String musica, int iDblock) {
+        //TODO:
+        byte[] result = new byte[1];
+        return result;
+    }
 }
